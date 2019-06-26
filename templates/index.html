@@ -1,0 +1,31 @@
+{% extends "site1.html" %}
+{% block code %}
+
+<form action="{{ url_for('hello') }}" method="post">
+ 	<table style="margin-top: 150px">
+ 		<tr>
+ 			<td>
+ 			Enter Twitter Username1:
+ 			 </td>
+ 			 <td>
+ 			   <input type="text" placeholder="@username1" style="height: 25px" name="name1" size="50px" required>
+ 			 </td>
+ 		</tr>
+ 		<br>
+ 		<br>
+ 		<tr>
+ 			<td>
+ 			   Enter Twitter Username2:
+ 			 </td>
+ 			 <td>
+ 			   <input type="text" placeholder="@username2" style="height: 25px" name="name2" size="50px" required>
+ 			 </td>
+ 		</tr>
+        <tr>
+           <td >
+              <input type="submit"  size="40px" value="submit" name="Submit " class="button" >
+            </td>
+         </tr>
+ </table>
+ </form>
+{% endblock %} 

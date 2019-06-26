@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 40em;
+  grid-row-gap: 30px;
+  padding: 20px;
+  background-color:transparent;
+    
+}
+
+.grid-container > div {
+  background-color:#F0E68C;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 30px;
+  margin-right:10px;
+  margin-left:10px;
+  
+  text-align: center;
+}
+
+
+.item1 img {
+  width: 150px;
+  border-radius: 50%;
+  
+}
+.item2 {
+textAlign: "center";
+padding: "10px"; 
+width: "500px";
+margin: "auto";
+}
+marquee{
+color:white;
+font-size:30px;}
+
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+h.intro{
+ 		margin: 20px;
+ 		font-size:40px;
+ 		text-align: center;
+ 		color:#FFD700;
+ 		font-family:Comic Sans MS;
+ 		background-color:transparent;
+ 		text-align: center;
+ 		font-style:italic; 
+      }
+
+
+</style>
+</head>
+<body style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')";
+>
+<center>
+<h class="intro">Battle Of Influencers</h>
+
+<h2 style="color:#FFD700;">Lets see which one is more influencer.</h2>
+<marquee style="color:#FFD700;"><h>{{status[2]}}</h></marquee>
+</center>
+<div class="grid-container">
+  <div class="item1">
+  <h3 style="font-size:30px">{{ user1 }}</h3>
+  <img src={{status[3]}}>
+  <center>
+  <table style="width:80%">
+   {% for key, value in status[0].items() %}
+    <tr>
+        <th>{{ key }}</th>
+        <td>{{ value }}</td>
+    </tr>
+   {% endfor %}
+</table></center></div>
+  <div class="item1">
+  <h3 style="font-size:30px">{{ user2 }}</h3>
+  <center>
+  <table style="width:80%">
+  <img src={{status[4]}} >
+   {% for key, value in status[1].items() %}
+    <tr>
+        <th>{{ key }}</th>
+        <td>{{ value }}</td>
+    </tr>
+   {% endfor %}
+</table></center></div>
+  
+</div>
+<p><h2 style="color:#FFD700;">This graph analysis the features of both the users. property to specify the size of the gap between the columns.This grid has a 50px gap between columns (and a 10px gap between rows)</h2>
+</p>
+<div class="item2">
+    <!--<p><img src="/static/images/fig.png" alt="kites" align="middle"></p>-->
+    {{ div_placeholder }}
+   <!-- {{ div_placeholder1 }}-->
+</div>
+<a href="http://localhost:8000/main" class="button">back</a>
+<a href="http://localhost:8000/detail" class="button">Detail</a>
+</body>
+</html>

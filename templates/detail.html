@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item1 img {
+  width: 150px;
+  border-radius: 50%;
+  
+}
+.item2 {
+  width: 700px;
+  margin: auto;
+}
+body{
+ 		margin: 20px;
+ 		color:#F0F8FF;
+ 		font-family:Comic Sans MS;
+ 		background-color:transparent;
+ 		font-style:italic;
+
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body style="background:#6B8E23">
+    <h1>Problem Statement:</h1>
+    <p>
+    <h3>The goal is to create and train a machine learning model to predict the human judgement about who is more 
+    influential on social media. Each datapoint in a dataset describes two individuals, A and B. For each person, 
+    11 pre-computed, non-negative numeric features based on twitter activity are provided.
+     The binary label represents a human judgement about which one of the two individuals is more influential.
+      A label '1' means A is more influential than B. 0 means B is more influential than A. That means it is a
+       binary classification problem.
+    </h3>
+    
+    <h1>Baseline Performance:</h1
+    <p><h3>The performance of an untuned model over a raw data acts as a baseline performance. If possible, 
+    it is a good practice to check for a baseline performance of various models instead on focusing on one. 
+    Since this is a small and computationally inexpensive dataset, I will check a baseline performance of some 
+    popular classifier models. In spite of a given test data, I have devided the data into train and test set as
+     given test set does not contain groundtruth values for checking generalization capability of a model. I am
+      also using a 10-fold cross validation to get the accurate performance measure.
+    </h3></p>
+    
+    <div class="item2"><img src="/static/images/figx.png" alt="kites" align="middle">
+    </div>
+    
+    <p><h3>
+    Most of these feature are heavily right skewed due to wide range outliers. This information is important for
+     model selection, as most models ideally require normaly distributed data. One way to solve this is by removing 
+     outliers. But removal of any data points means loss of information and should always be avoided unless that data
+      point is a mistake. It is definitely a possibility for a person to have a million followers or reweets.
+       That means these outliers are proper observations. Log transformation can be useful in this situation.
+        But let's wait till we get the baseline performance.
+    </h3></p>
+    
+    <h2>=>This bar graph analysis the features A(Raw data).</h2>
+    
+    <div class="item2"><img src="/static/images/feaA_before_scaling.png" alt="kites" align="middle">
+    </div>
+    
+    <h2>=>This bar graph analysis the features B(Raw data).</h2>
+    
+    <div class="item2"><img src="/static/images/feaB_before_scaling.png" alt="kites" align="middle">
+    </div>
+    
+    <h1>Data Preprocessing:</h1>
+    <p><h3>Now that a baseline performance is known, it is time to improve it by using differt types of feature
+    scaling or transformation and using log transformation we can achive that .</h3></p>
+    
+    <h2>=>This bar graph analysis the features A(Log Transformation).</h2>
+    
+    <div class="item2"><img src="/static/images/feaA_after_scaling.png" alt="kites" align="middle">
+    </div>
+    
+    <h2>=>This bar graph analysis the features B(Log Transformation).</h2>
+    
+    <div class="item2"><img src="/static/images/feaB_after_scaling.png" alt="kites" align="middle" class="item2">
+    </div>
+    
+    <h1>Feature Selection:</h1>
+    <p><h3>Feature selection means selecting the best possible features which are already availble to us. It can be done by 
+    applying various stastical methods on features or by using the 'L1' regularization in the model. Here I have used SelectKBest
+     class and Recursive Feature Elemination by RFE class.
+     </h3></p>    
+    
+    <div class="item2"><img src="/static/images/feature_selection.png" alt="kites" align="middle"></div>
+    
+    <h1>Conclusion:</h1>
+    <p><h3>It was an interesting problem. Data was almost perfect and data cleaning requirement was minimal. Data was extremely 
+    right skewed which greatly afftected the baseline performance of many non-tree based models. A simple log transformation of 
+    the data was managed to solve this problem and considerably improved the performance of those models. After which I attempted
+     to further improve that performance with feature engineering and selection. This had a different effect on different models.
+      In the end, I get the best accuracy after all preprocessing by Logistic Regression.
+      </h3></p>
+      
+      <div class="item2"><img src="/static/images/figy.png" alt="kites" align="middle"></div>
+      <a href="http://localhost:8000/main" class="button">back</a>
+</body>
+</html>
